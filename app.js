@@ -49,6 +49,67 @@ function searchByGender(people){
   })
   return foundPeople;
 }
+
+function searchByEyeColor(people){
+  var userInput = prompt("Eye color");
+  var foundPeople = people.filter(function(person){
+    if(person.eyecolor === userInput){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPeople;
+}
+function searchByWeight(people){
+  var userInput = prompt("weight");
+  var foundPeople = people.filter(function(person){
+    if(person.weight === userInput){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPeople;
+}
+function searchByHeight(people){
+  var userInput = prompt("height");
+  var foundPeople = people.filter(function(person){
+    if(person.height === userInput){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPeople;
+}
+function searchByOccupation(people){
+  var userInput = prompt("occupation");
+  var foundPeople = people.filter(function(person){
+    if(person.occupation === userInput){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPeople;
+}
+function searchByDob(people){
+  var userInput = prompt("dob");
+  var foundPeople = people.filter(function(person){
+    if(person.dob === userInput){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPeople;
+}
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
 
@@ -71,6 +132,14 @@ function mainMenu(person, people){
     // TODO: get person's family
     
     case "descendants":
+    function descendantName (person, people){
+     //if var descendantName.filter(person,people); function
+     return descendantName (person,people);
+
+      
+
+ }
+
     // TODO: get person's descendants
     
     case "restart":
@@ -116,7 +185,7 @@ function displayPerson(person){
   personInfo += "dob: " + person.dob + "\n";
   personInfo += "height: " + person.height + "\n";
   personInfo += "weight: " + person.weight + "\n";
-  personInfo += "eyeColor: " + person.eyeColor + "\n";
+  personInfo += "eyecolor: " + person.eyecolor + "\n";
   personInfo += "occupation: " + person.occupation + "\n";
   // TODO: finish getting the rest of the information to display
   alert(personInfo);
