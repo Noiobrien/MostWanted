@@ -100,8 +100,33 @@ function searchByOccupation(people){
 }
 function searchByDob(people){
   var userInput = prompt("dob");
+  
   var foundPeople = people.filter(function(person){
     if(person.dob === userInput){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPeople;
+}
+function searchByParents(people){
+  var userInput = prompt("parents");
+  var foundPeople = people.filter(function(person){
+    if(person.parents === userInput){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPeople;
+}
+function searchBycurrentSpouse(people){
+  var userInput = prompt("current spouse");
+  var foundPeople = people.filter(function(person){
+    if(person.currentSpouse === userInput){
       return true;
     }
     else{
@@ -121,7 +146,7 @@ function mainMenu(person, people){
   }
 
   var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
-
+ 
   switch(displayOption){
     case "info":
     displayPerson(person);
@@ -187,6 +212,8 @@ function displayPerson(person){
   personInfo += "weight: " + person.weight + "\n";
   personInfo += "eyecolor: " + person.eyecolor + "\n";
   personInfo += "occupation: " + person.occupation + "\n";
+  personInfo += "parents: " + person.parents + "\n";
+  personInfo += "currentSpouse: " + person.currentSpouse + "\n";
   // TODO: finish getting the rest of the information to display
   alert(personInfo);
 }
