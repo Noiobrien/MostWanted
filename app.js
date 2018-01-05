@@ -99,8 +99,8 @@ function searchByOccupation(people){
   return foundPeople;
 }
 function searchByDob(people){
-  var userInput = prompt("dob");
-  
+  var userInput = prompt("dob",chars);
+
   var foundPeople = people.filter(function(person){
     if(person.dob === userInput){
       return true;
@@ -135,6 +135,7 @@ function searchBycurrentSpouse(people){
   })
   return foundPeople;
 }
+
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
 
@@ -151,24 +152,33 @@ function mainMenu(person, people){
     case "info":
     displayPerson(person);
 
-    // TODO: get person's info
+
+
+
+    // TODO: get person's info use for loop
     break;
     case "family":
+    
+
+    //TODO: Make getFamily function (filter that returns an aray of family members)
+    //TODO: display family names (alert)
+    mainMenu(person, people)
+
+      break;
+    
     // TODO: get person's family
     
     case "descendants":
-    function descendantName (person, people){
-     //if var descendantName.filter(person,people); function
+
+       //if var descendantName.filter(person,people); function
      return descendantName (person,people);
 
       
-
- }
-
     // TODO: get person's descendants
-    
-    case "restart":
+    case "restart":    
+
     app(people); // restart
+
     break;
     case "quit":
     return; // stop execution
@@ -176,7 +186,73 @@ function mainMenu(person, people){
     return mainMenu(person, people); // ask agai
   }
 }
+function getFamily(person,people){
+      var foundfamily = people.filter(function(person){
 
+      })
+    
+
+    var family = getFamily(person,people)
+      if (foundfamily.parents[0]===person.id){
+        return true;
+       }
+    else{
+      return false;
+    }
+  
+  }
+  
+
+function getParents(foundperson,people){
+  var parents = people.filter(function(person){
+    if (foundperson.parents[0]===person.id || foundperson.parents[1]===person.id){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+}
+function getSiblings(foundperson,people){
+  var siblings = people.filter(function(person){
+    if (foundperson.parents[0]===person.id || foundperson.parents[1]===person.id){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+}
+function getSpouse(foundperson,people){
+  var spouse = people.filter(function(person){
+    if (foundperson.parents[0]===person.id || foundperson.parents[1]===person.id){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+}
+function getChildren(foundperson,people){
+  var children = people.filter(function(person){
+    if (foundperson.parents[0]===person.id || foundperson.parents[1]===person.id){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+}
+function descendantName (person, people){
+      var foundDescendant = people.filter(function(person){
+        if (person.parents === firstName && person.lastName ===lastName){ 
+          return true; 
+        }
+        else{
+          return false;
+        }
+})
+}
 function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
@@ -210,7 +286,7 @@ function displayPerson(person){
   personInfo += "dob: " + person.dob + "\n";
   personInfo += "height: " + person.height + "\n";
   personInfo += "weight: " + person.weight + "\n";
-  personInfo += "eyecolor: " + person.eyecolor + "\n";
+  personInfo += "eyeColor: " + person.eyeColor + "\n";
   personInfo += "occupation: " + person.occupation + "\n";
   personInfo += "parents: " + person.parents + "\n";
   personInfo += "currentSpouse: " + person.currentSpouse + "\n";
@@ -235,3 +311,7 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
+
+
+
+ 
